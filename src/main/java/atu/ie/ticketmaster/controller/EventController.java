@@ -4,7 +4,6 @@ import atu.ie.ticketmaster.model.Event;
 import atu.ie.ticketmaster.services.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
