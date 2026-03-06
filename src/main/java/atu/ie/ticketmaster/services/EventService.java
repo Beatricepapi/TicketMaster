@@ -21,4 +21,8 @@ public class EventService {
         return eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
     }
+
+    public Event addEvent(Event event) {
+        return eventRepository.save(event);
+    }
 }
