@@ -22,4 +22,9 @@ public class EventController {
     public Event getEventDetails(@PathVariable Long id) {
         return eventService.getEventById(id);
     }
+
+    @PostMapping
+    public Event addEvent(@RequestBody Event event) {
+        return eventService.addEvent(event);
+    }
 }
