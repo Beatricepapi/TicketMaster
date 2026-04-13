@@ -1,5 +1,6 @@
 package atu.ie.ticketmaster.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore   // 🔥 FIX: prevents infinite loop
     private User user;
 
     @ManyToOne
