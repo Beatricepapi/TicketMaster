@@ -21,11 +21,17 @@ public class BookingService {
 
     public Booking buyTickets(Long userId, Long eventId, int quantity) {
 
+        System.out.println("UserId: " + userId);
+        System.out.println("EventId: " + eventId);
+        System.out.println("Quantity: " + quantity);
+
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 
         Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new RuntimeException("Event not found"));
+                .orElseThrow(() -> new RuntimeException("Event not found with ID: " + eventId));
+
+        System.out.println("Available tickets: " + event.getAvailableTickets());
 
         if (event.getAvailableTickets() < quantity) {
             throw new RuntimeException("Not enough tickets available");

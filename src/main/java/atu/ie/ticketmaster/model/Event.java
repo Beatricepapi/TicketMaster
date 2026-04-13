@@ -1,5 +1,6 @@
 package atu.ie.ticketmaster.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,8 +12,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
 public class Event {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,5 +27,6 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "venue_id")
+    @JsonIgnore   // 🔥 FIX: prevents serialization issues
     private Venue venue;
 }
